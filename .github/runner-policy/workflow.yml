@@ -1,0 +1,35 @@
+---
+name: Blacksmith runner policy
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blacksmith-policy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  runner-policy:
+    name: Blacksmith runner policy
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the hash-pinned YAML parser
+        run: |
+          python3 -m venv "$RUNNER_TEMP/runner-policy"
+          "$RUNNER_TEMP/runner-policy/bin/pip" install --disable-pip-version-check \
+            --only-binary=:all: --require-hashes -r .github/runner-policy/requirements.txt
+      - name: Test and enforce the runner policy
+        run: |
+          "$RUNNER_TEMP/runner-policy/bin/python" -m unittest discover \
+            -s .github/runner-policy -p 'test_*.py'
+          "$RUNNER_TEMP/runner-policy/bin/python" .github/runner-policy/check.py

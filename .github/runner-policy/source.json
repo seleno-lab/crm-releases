@@ -1,0 +1,15 @@
+{
+  "repository": "seleno-lab/seleno-infra",
+  "revision": "36a405d20b443f9b2d40f0719db397b0578ce623",
+  "sha256": {
+    "AGENTS-section.md": "6d73af942e6b820c4d399049e05c2984e7dfe454834a4963f670723b96319963",
+    "README.md": "3221fb1efa734968de1ea1605e7ab850f234022f757d8af15022407bcc8fe778",
+    "check.py": "13abb5f9999ff886a6832097ae7293031cb7f730fd5d339fac43f3109e4da3de",
+    "policy.json": "0d127e5e45e9925a50ca779d008e73dc0143c8f625d2ac0f1ee64bd0ee283b6c",
+    "requirements.txt": "4ea236c7035249ad4d42e856b60ca03fc99def56686450165fecee1097ac3d73",
+    "ruleset.json": "a9f79c1e30bcff9cc18345ae886e4102aedf09c6695a2b022c6c8e3ac8f7f2a4",
+    "sync.py": "6b2723f75b19ee240489ecc1fc9a0c3643ff453c8418db791b4e91569e6e1065",
+    "test_check.py": "18a768f52a9bb005855fd430e958ae2984d1bd4c8f6b8c071b6db3cd7a7bc2ad",
+    "workflow.yml": "8a2906e1cfeaee586ca5c700e8e42d4cd1779f0ade480936509ab8a36322b51c"
+  }
+}
